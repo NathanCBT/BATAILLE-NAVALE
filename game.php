@@ -18,7 +18,17 @@ for ($i = 0; $i < 11; $i++) {
         }
     }
 }
+/*
+if (isset($_POST["reset_total"])) {
+  $etat = ["j1" => null, "j2" => null];
+  save_state($GLOBALS['fichier'], $etat);
 
+  session_unset();
+  session_destroy();
+
+  header("Location: game.php");
+  exit;
+}*/
 
 echo "<table border='1' cellpadding='5' cellspacing='0'>";
 for ($i = 0; $i < 11; $i++) {
@@ -29,4 +39,21 @@ for ($i = 0; $i < 11; $i++) {
     echo "</tr>";
 }
 echo "</table>";
+/*
+header('refresh:5');
 ?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Game Start</title>
+
+    <form method="post">
+      <button type="submit" name="reset_total">
+          ❌ Fin de partie (RESET)
+      </button>
+    </form>
+  </body>
+</html>
+*/
