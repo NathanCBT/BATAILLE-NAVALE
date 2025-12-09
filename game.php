@@ -1,7 +1,6 @@
 <?php
 $tableau = [];
 
-
 for ($i = 0; $i < 11; $i++) {
     for ($j = 0; $j < 11; $j++) {
         if ($i == 0 && $j == 0) {
@@ -14,7 +13,7 @@ for ($i = 0; $i < 11; $i++) {
             $tableau[$i][$j] = $i;
         } else {
         
-            $tableau[$i][$j] = "";
+            $tableau[$i][$j] = '<form method="post"><button>O</button></form>';
         }
     }
 }
