@@ -15,3 +15,5 @@ if ($etat["j1"] != null && $etat["j2"] != null) {
 } else {
   include('./views/players-selected.php');
 }
+
+header('Refresh:2');
