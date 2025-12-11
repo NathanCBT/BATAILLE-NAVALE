@@ -1,0 +1,63 @@
+    body {
+        background: #0a0f24;
+        color: #e2e8f0;
+        font-family: "Segoe UI", sans-serif;
+    }
+
+    h2 {
+        color: #60a5fa;
+        margin-bottom: 20px;
+        text-shadow: 0 0 6px rgba(96,165,250,0.4);
+    }
+
+    /* Grille */
+    .cell {
+        width: 36px;
+        height: 36px;
+        border: 1px solid #1e293b;
+        border-radius: 4px;
+        transition: 0.15s ease-in-out;
+        box-shadow: inset 0 0 4px #0008;
+    }
+
+    /* Survol */
+    .cell:hover {
+        transform: scale(1.1);
+        filter: brightness(1.2);
+        cursor: pointer;
+    }
+
+    
+    .c-default{ 
+        background: #64748b; 
+    }   
+    .c-touch{ 
+        background: #dc2626 !important; 
+    } 
+    .c-miss{ 
+        background: #3b82f6 !important; 
+    } 
+
+    /* Conteneur grille */
+    .grid-wrapper {
+        background: #1e293b;
+        padding: 20px;
+        border-radius: 12px;
+        display: inline-block;
+        box-shadow: 0 0 15px #0006;
+    }
+
+    /* Bouton reset */
+    .btn-reset {
+        background: #ef4444;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 8px;
+        transition: 0.2s;
+        margin-top: 25px;
+    }
+    .btn-reset:hover {
+        filter: brightness(1.2);
+        transform: scale(1.05);
+    }
