@@ -35,7 +35,7 @@ $colsPerRow = 10;
 
 <div class="container text-center mt-3">
 
-    <h2>🎯 Vous tirez sur : <?= strtoupper($player) ?></h2>
+    <h2>Vous tirez sur : <?= strtoupper($player) ?></h2>
 
     <?php
     // Affichage de la grille 10x10
