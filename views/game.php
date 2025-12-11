@@ -8,7 +8,11 @@ $sql = new SqlConnect();
 $player = ($_SESSION["role"] === 'joueur1') ? 'joueur2' : 'joueur1';
 
 // Récupère la grille complète depuis la base
-$query = "SELECT * FROM $player ORDER BY idgrid";
+$query = "
+    SELECT * FROM $player
+    ORDER BY 
+        LEFT(idgrid, 1),        -- A, B, C...
+        CAST(SUBSTRING(idgrid, 2) AS UNSIGNED)  -- 1,2,3...10";
 $req = $sql->db->prepare($query);
 $req->execute();
 $rows = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -35,7 +39,7 @@ $colsPerRow = 10;
 
 <div class="container text-center mt-3">
 
-    <h2>🎯 Vous tirez sur : <?= strtoupper($player) ?></h2>
+    <h2>Vous tirez sur : <?= strtoupper($player) ?></h2>
 
     <?php
     // Affichage de la grille 10x10
