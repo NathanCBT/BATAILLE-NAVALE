@@ -42,6 +42,7 @@ $colsPerRow = 10;
     <h2>Vous tirez sur : <?= strtoupper($player) ?></h2>
 
     <?php
+    $win = 0;
     // Affichage de la grille 10x10
     for ($i = 0; $i < count($rows); $i += $colsPerRow) {
         echo '<div class="row justify-content-center">';
@@ -59,6 +60,11 @@ $colsPerRow = 10;
             if ($case['checked'] == 1) {
                 if ($case['boat'] > 0) {
                     $color = "red";   // touché
+                    $win++;
+                    if ($win == 17) {
+                        echo 'Vous avez gagner';
+                        
+                    }
                 } else {
                     $color = "blue";  // raté
                 }
