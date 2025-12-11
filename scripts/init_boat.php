@@ -3,7 +3,7 @@ include('./sql-connect.php');
 
 $sql = new SqlConnect();
 
-$boat = [
+$boat["joueur1"] = [
     [3,0,0,0,0,0,0,2,2,0],
     [3,0,0,0,0,0,0,0,0,0],
     [3,0,0,0,0,0,0,0,0,0],
@@ -16,6 +16,20 @@ $boat = [
     [0,0,0,0,0,0,0,0,0,0]
 ];
 
+$boat["joueur2"] = [
+    [3,3,3,0,0,0,0,2,2,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,4,0,2,2,0,0,0],
+    [0,0,0,4,0,5,0,0,0,0],
+    [0,0,0,4,0,5,0,0,0,0],
+    [0,0,0,4,0,5,0,0,0,0],
+    [3,3,3,0,0,5,0,0,0,0],
+    [0,0,0,0,0,5,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0]
+];
+
+
 
 $tables = ["joueur1", "joueur2"];
 
@@ -26,8 +40,11 @@ foreach ($tables as $table) {
 
     for ($row = 0; $row < 10; $row++) {
         for ($col = 0; $col < 10; $col++) {
+
             $coord = chr(65 + $row) . ($col + 1);
-            $value = $boat[$row][$col];
+
+            //Récupération correcte de la valeur dans la grille du joueur
+            $value = $boat[$table][$row][$col];
 
             $req = $sql->db->prepare("
                 UPDATE $table 
