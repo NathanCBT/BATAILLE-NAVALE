@@ -4,10 +4,9 @@ include('./scripts/sql-connect.php');
 
 $sql = new SqlConnect();
 
-// Détermine quelle table on doit afficher (l'adversaire)
 $player = ($_SESSION["role"] === 'joueur1') ? 'joueur2' : 'joueur1';
 
-// Récupère la grille complète depuis la base
+// grille de la bdd
 $query = "
     SELECT * FROM $player
     ORDER BY 
@@ -56,10 +55,6 @@ $colsPerRow = 10;
                 if ($case['boat'] > 0) {
                     $color = "red";   // touché
                     $win++;
-                    if ($win == 17) {
-                        echo 'Vous avez gagner';
-                        
-                    }
                 } else {
                     $color = "blue";  // raté
                 }
@@ -73,6 +68,7 @@ $colsPerRow = 10;
         }
 
         echo '</div>';
+        
     }
     ?>
     <?php if (!empty($_SESSION["message"])): ?>
@@ -81,6 +77,13 @@ $colsPerRow = 10;
     </div>
     <?php $_SESSION["message"] = ""; ?>
     <?php endif; ?>
+
+    <?php 
+        if ($win == 17) {
+            echo '<div class="victoire">Vous avez gagné</div>';
+        }
+    ?>
+
 
     <form method="post" action="./scripts/reset_total.php" class="mt-3">
         <button type="submit" name="reset_total" class="btn btn-danger">
