@@ -35,6 +35,14 @@ $colsPerRow = 10;
 
     <h2>Vous tirez sur : <?= strtoupper($player) ?></h2>
 
+    <?php if (!empty($_SESSION["message"])): ?>
+    <div class="alert alert-info text-center">
+        <?= $_SESSION["message"] ?>
+    </div>
+    <?php $_SESSION["message"] = ""; ?>
+    <?php endif; ?>
+
+
     <?php
     $win = 0;
     // Affichage de la grille 10x10
