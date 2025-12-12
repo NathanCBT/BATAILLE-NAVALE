@@ -25,6 +25,7 @@
   <head>
       <meta charset="UTF-8">
       <title>Joueur 1 / Joueur 2</title>
+      <link rel="stylesheet" type="text/css" href="/views/players-selected.css" />
   </head>
   <body>
     <h1>Connexion aux rôles</h1>
