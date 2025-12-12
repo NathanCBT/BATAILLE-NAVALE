@@ -52,7 +52,7 @@ if ($boatId > 0) {
     }
 
     if ($remaining == 0) {
-        $_SESSION["message"] = "Bateau $boatId détruit !";
+        $_SESSION["message"] = "$boatId détruit !";
     } else {
         $_SESSION["message"] = "Touché !";
     }
