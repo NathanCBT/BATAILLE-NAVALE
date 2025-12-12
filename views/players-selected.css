@@ -9,7 +9,6 @@ body {
     min-height: 100vh;
     margin: 0;
 }
- 
 /* Conteneur principal */
 .container {
     background-color: #1e293b; 
@@ -20,22 +19,18 @@ body {
     width: 90%;
     text-align: center; 
 }
- 
 h1 {
     color: rgba(96,165,250,0.4);
     margin-bottom: 20px;
 }
- 
 h2 {
     color: rgba(96,165,250,0.4); 
     margin-bottom: 30px;
 }
- 
 strong {
     color: #ffffff;
     font-weight: 600;
 }
- 
 /* Conteneur pour les statuts des joueurs */
 .status-container {
     background-color: #2c5282;
@@ -44,7 +39,6 @@ strong {
     margin-bottom: 30px;
     border: 1px solid #1a365d;
 }
- 
 .status-item {
     display: flex;
     justify-content: space-between;
@@ -52,38 +46,34 @@ strong {
     margin-bottom: 15px;
     font-size: 1.1rem;
 }
- 
+
 .status-item:last-child {
     margin-bottom: 0;
 }
- 
+
 .status-label {
     font-weight: 500;
 }
- 
+
 .status-indicator {
     font-weight: 600;
     padding: 5px 10px;
     border-radius: 5px;
 }
- 
 .status-indicator.occupied {
     background-color: rgba(72, 187, 120, 0.2);
     border: 1px solid #48bb78; 
 }
- 
 .status-indicator.free {
     background-color: rgba(245, 101, 101, 0.2);
     border: 1px solid #f56565; 
 }
- 
 /* Formulaire et boutons */
 .player-form {
     display: flex;
     flex-direction: column;
     gap: 15px; 
 }
- 
 .player-btn {
     background-color: #2c5282; 
     border: 1px solid #1a365d;
@@ -96,13 +86,11 @@ strong {
     transition: all 0.2s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
- 
 .player-btn:hover:not(:disabled) {
     background-color: #3a6ea5; 
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
- 
 .player-btn:disabled {
     background-color: #4a5568; 
     border-color: #2d3748;

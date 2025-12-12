@@ -23,10 +23,11 @@ $update->execute([":id" => $cell]);
 
 $boatId = (int)$cellData["boat"];
 
-$_SESSION["message"] = "";
+$_SESSION["message"] = ""; 
 
 if ($boatId > 0) {
 
+    
     $checkBoat = $sql->db->prepare("
         SELECT COUNT(*) FROM $player 
         WHERE boat = :b AND checked = 0
@@ -35,15 +36,13 @@ if ($boatId > 0) {
     $remaining = $checkBoat->fetchColumn();
 
     if ($remaining == 0) {
-
-        $_SESSION["message"] = " Bateau $boatId détruit !";
+        $_SESSION["message"] = "Bateau $boatId détruit !";
     } else {
-        $_SESSION["message"] = " Touché !";
+        $_SESSION["message"] = "Touché !";
     }
 
 } else {
-    // Raté
-    $_SESSION["message"] = " Raté !";
+    $_SESSION["message"] = "Raté !";
 }
 
 header("Location: ../index.php");
