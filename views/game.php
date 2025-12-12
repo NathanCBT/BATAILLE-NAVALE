@@ -55,10 +55,6 @@ $colsPerRow = 10;
                 if ($case['boat'] > 0) {
                     $color = "red";   // touché
                     $win++;
-                    if ($win == 17) {
-                        echo 'Vous avez gagner';
-                        
-                    }
                 } else {
                     $color = "blue";  // raté
                 }
@@ -73,8 +69,12 @@ $colsPerRow = 10;
 
         echo '</div>';
     }
+    if ($win == 17) {
+        echo 'Vous avez gagner';
+                        
+    }
     ?>
-
+    
     <form method="post" action="./scripts/reset_total.php" class="mt-3">
         <button type="submit" name="reset_total" class="btn btn-danger">
             ❌ Fin de partie (RESET)

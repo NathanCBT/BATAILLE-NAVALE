@@ -24,25 +24,39 @@
 <html>
   <head>
       <meta charset="UTF-8">
-      <title>Joueur 1 / Joueur 2</title>
+      <title>Sélection des joueurs</title>
+      <link rel="stylesheet" type="text/css" href="/views/players.css" />
   </head>
   <body>
-    <h1>Connexion aux rôles</h1>
-    <h2>Votre rôle actuel : <strong><?= $role ?></strong></h2>
-    <p>
-      Joueur 1 : <?= $etat["j1"] ? "🟢 Occupé" : "🔴 Libre" ?><br>
-      Joueur 2 : <?= $etat["j2"] ? "🟢 Occupé" : "🔴 Libre" ?>
-    </p>
+    <div class="container text-center">
+      <h1>Connexion aux rôles</h1>
+      <h2>Votre rôle actuel : <strong><?= $role ?></strong></h2>
+      
+      <div class="status-container">
+        <div class="status-item">
+          <span class="status-label">Joueur 1 :</span>
+          <span class="status-indicator <?= $etat["j1"] ? "occupied" : "free" ?>">
+            <?= $etat["j1"] ? "🟢 Occupé" : "🔴 Libre" ?>
+          </span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Joueur 2 :</span>
+          <span class="status-indicator <?= $etat["j2"] ? "occupied" : "free" ?>">
+            <?= $etat["j2"] ? "🟢 Occupé" : "🔴 Libre" ?>
+          </span>
+        </div>
+      </div>
 
-    <form method="post">
-      <button type="submit" name="joueur1"
-          <?= $etat["j1"] !== null ? "disabled" : "" ?>>
-          🎮 Devenir Joueur 1
-      </button>
-      <button type="submit" name="joueur2"
-          <?= $etat["j2"] !== null ? "disabled" : "" ?>>
-          🎮 Devenir Joueur 2
-      </button>
-    </form>
+      <form method="post" class="player-form">
+        <button type="submit" name="joueur1" class="player-btn"
+            <?= $etat["j1"] !== null ? "disabled" : "" ?>>
+            🎮 Devenir Joueur 1
+        </button>
+        <button type="submit" name="joueur2" class="player-btn"
+            <?= $etat["j2"] !== null ? "disabled" : "" ?>>
+            🎮 Devenir Joueur 2
+        </button>
+      </form>
+    </div>
   </body>
 </html>
