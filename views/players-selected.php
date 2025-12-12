@@ -24,13 +24,8 @@
 <html>
   <head>
       <meta charset="UTF-8">
-<<<<<<< HEAD
-      <title>Joueur 1 / Joueur 2</title>
-      <link rel="stylesheet" type="text/css" href="/views/players-selected.css" />
-=======
       <link rel="stylesheet" type="text/css" href="/views/players-selected.css" />
       <title>Sélection des joueurs</title>
->>>>>>> b8d1014dcde8fd8a6c7fc85aee59f7815a3201ab
   </head>
   <body>
     
