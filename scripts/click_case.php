@@ -35,6 +35,22 @@ if ($boatId > 0) {
     $checkBoat->execute([":b" => $boatId]);
     $remaining = $checkBoat->fetchColumn();
 
+    if ($boatId == 2) {
+        $boatId = 'torpilleur';
+    }
+    else if ($boatId == 3) {
+        $boatId = 'sous-marrin';
+    }
+    else if ($boatId == 6) {
+        $boatId = 'sous-marrin';
+    }
+    else if ($boatId == 4) {
+        $boatId = 'croiseur';
+    }
+    else if ($boatId == 5) {
+        $boatId = 'porte-avion';
+    }
+
     if ($remaining == 0) {
         $_SESSION["message"] = "Bateau $boatId détruit !";
     } else {
