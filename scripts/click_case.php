@@ -20,26 +20,45 @@ if ($cellData["checked"] == 1) {
     exit;
 }
 
-
 $update = $sql->db->prepare("UPDATE $player SET checked = 1 WHERE idgrid = :id");
 $update->execute([":id" => $cell]);
 
-$boatId = (int)$cellData["boat"];
+$boatId_num = (int)$cellData["boat"];
+$_SESSION["message"] = "";
 
-$_SESSION["message"] = ""; 
+if ($boatId_num > 0) {
 
-if ($boatId > 0) {
 
-    
     $checkBoat = $sql->db->prepare("
         SELECT COUNT(*) FROM $player 
         WHERE boat = :b AND checked = 0
     ");
-    $checkBoat->execute([":b" => $boatId]);
+    $checkBoat->execute([":b" => $boatId_num]);
     $remaining = $checkBoat->fetchColumn();
 
+    $boatName = match($boatId_num) {
+        2 => 'Torpilleur',
+        3 => 'Sous-marin',
+        6 => 'Sous-marin',
+        4 => 'Croiseur',
+        5 => 'Porte-avion',
+        default => "Bateau",
+    };
+
     if ($remaining == 0) {
-        $_SESSION["message"] = "Bateau $boatId détruit !";
+
+        $getCoords = $sql->db->prepare("
+            SELECT idgrid FROM $player
+            WHERE boat = :b
+            ORDER BY idgrid
+        ");
+        $getCoords->execute([":b" => $boatId_num]);
+        $coordsList = $getCoords->fetchAll(PDO::FETCH_COLUMN);
+
+        $coordsText = implode(" - ", $coordsList);
+
+        $_SESSION["message"] = "$boatName détruit ! Coordonnées : $coordsText";
+
     } else {
         $_SESSION["message"] = "Touché !";
     }
