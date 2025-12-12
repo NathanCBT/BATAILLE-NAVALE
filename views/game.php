@@ -4,10 +4,10 @@ include('./scripts/sql-connect.php');
 
 $sql = new SqlConnect();
 
-// Détermine quelle table on doit afficher (l'adversaire)
+
 $player = ($_SESSION["role"] === 'joueur1') ? 'joueur2' : 'joueur1';
 
-// Récupère la grille complète depuis la base
+
 $query = "
     SELECT * FROM $player
     ORDER BY 
@@ -38,7 +38,7 @@ $colsPerRow = 10;
 
     <?php
     $win = 0;
-    // Affichage de la grille 10x10
+
     for ($i = 0; $i < count($rows); $i += $colsPerRow) {
         echo '<div class="row justify-content-center">';
 
@@ -48,20 +48,20 @@ $colsPerRow = 10;
             $case = $rows[$i + $j];
             $idgrid = $case['idgrid'];
 
-            // Couleur par défaut
+
             $color = "grey";
 
-            // Case tirée
+
             if ($case['checked'] == 1) {
                 if ($case['boat'] > 0) {
-                    $color = "red";   // touché
+                    $color = "red";
                     $win++;
                     if ($win == 17) {
                         echo 'Vous avez gagner';
                         
                     }
                 } else {
-                    $color = "blue";  // raté
+                    $color = "blue";
                 }
             }
 
