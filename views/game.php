@@ -35,13 +35,6 @@ $colsPerRow = 10;
 
     <h2>Vous tirez sur : <?= strtoupper($player) ?></h2>
 
-    <?php if (!empty($_SESSION["message"])): ?>
-    <div class="alert alert-info text-center">
-        <?= $_SESSION["message"] ?>
-    </div>
-    <?php $_SESSION["message"] = ""; ?>
-    <?php endif; ?>
-
 
     <?php
     $win = 0;
@@ -82,6 +75,12 @@ $colsPerRow = 10;
         echo '</div>';
     }
     ?>
+    <?php if (!empty($_SESSION["message"])): ?>
+    <div class="alert alert-info text-center">
+        <?= $_SESSION["message"] ?>
+    </div>
+    <?php $_SESSION["message"] = ""; ?>
+    <?php endif; ?>
 
     <form method="post" action="./scripts/reset_total.php" class="mt-3">
         <button type="submit" name="reset_total" class="btn btn-danger">
